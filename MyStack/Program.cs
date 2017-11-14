@@ -91,6 +91,11 @@ namespace MyStack
              return _items[_count-1];
          }
 
+         public void Resize(int max)
+         {
+             
+         }
+
          public override string ToString()
          {
              return string.Format($"");
