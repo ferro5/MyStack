@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyStack
 {
@@ -17,21 +13,15 @@ namespace MyStack
             stack.Push(4);
             stack.Push(1);
             stack.Push(3);
+             
+            Console.WriteLine("All elements of stack {0}",stack.Conut);
 
-            for (int i = 0; i < stack.Conut; i++)
-            {
-                Console.WriteLine(stack.ToString());
-                
-            }
-            
-            
+
 
             var head = stack.Pop();
             Console.WriteLine("+++++++++++++++++++++++++++++++");
-            for (int i = 0; i < stack.Conut; i++)
-            {
-                Console.WriteLine(stack.ToString());
-            }
+            Console.WriteLine("Nov {0} elements",stack.Conut);
+
             Console.WriteLine(head);
             Console.WriteLine("+++++++++++++++++++++++++++++++");
             head = stack.Peek();
@@ -56,7 +46,7 @@ namespace MyStack
              _items = new int[lenght];
          }
 
-         public bool isEmpty()
+         public bool IsEmpty()
          {
              return _count == 0;
          }
@@ -77,7 +67,7 @@ namespace MyStack
 
          public int Pop()
          {
-             if (isEmpty())
+             if (IsEmpty())
              {
                  Console.WriteLine($"Stack is empty");
              }
@@ -93,7 +83,12 @@ namespace MyStack
 
          public void Resize(int max)
          {
-             
+             int[] tempItems = new int [max];
+             for (int i = 0; i < _count; i++)
+             {
+                 tempItems[i] = _items[i];
+             }
+             _items = tempItems;
          }
 
          public override string ToString()
